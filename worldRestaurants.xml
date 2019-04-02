@@ -1,0 +1,4 @@
+<Context displayName="World Restaurants" 
+    path="/worldRestaurants" 
+    docBase="/home/ubuntu/workspace/world_restaurants/target/world_restaurants_core-1.0-SNAPSHOT" 
+    reloadable="true"/>

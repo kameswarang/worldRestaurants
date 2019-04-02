@@ -1,0 +1,66 @@
+<ui:composition template="/templates/layout.xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+	
+	<ui:define name="javascripts">
+	</ui:define>
+	<ui:define name="main">
+		<h:panelGroup id="filters" layout="block" p:class="filters">
+		<h:form class="filter" id="searchCuisines">
+			<h:inputText id="cuisine" p:placeholder="Search by cuisines" value="#{restBB.cuisine}" p:required>
+				<f:ajax event="blur" execute="@this" render="cuisineErr"/>
+			</h:inputText>
+			<h:commandButton value="SEARCH" action="#{restBB.searchCuisine}">
+				<f:ajax execute="@form" render="holder filters"/>
+			</h:commandButton>
+			<br/><h:message id="cuisineErr" for="cuisine" errorClass="errors" showDetail="true"/>
+		</h:form>
+		<h:form class="filter" id="searchNames">
+			<h:inputText id="name" p:placeholder="Search by name" value="#{restBB.name}" p:required>
+				<f:ajax event="blur" execute="@this" render="nameErr"/>
+			</h:inputText>
+			<h:commandButton value="SEARCH" action="#{restBB.searchRest}">
+				<f:ajax execute="@form" render="holder filters"/>
+			</h:commandButton>
+			<br/><h:message id="nameErr" for="name" errorClass="errors" showDetail="true"/>
+		</h:form>
+		<h:form class="filter" id="sort">
+			<h:commandButton id="sort" value="GO" action="#{restBB.sort}">
+				<f:ajax execute="@form" render="holder"/>
+			</h:commandButton>
+			<h:selectOneMenu value="#{restBB.sortBy}" p:required>
+				<f:selectItem itemValue="" itemLabel=""/>
+				<f:selectItem itemValue="cost" itemLabel="Cost"/>
+				<f:selectItem itemValue="rating" itemLabel="Rating"/>
+				<f:selectItem itemValue="votes" itemLabel="Votes"/>
+			</h:selectOneMenu><span>Sort By</span>
+		</h:form>
+		<h:form id="searchResult" class="filter" rendered="#{restBB.searchActive}">
+			<span id="count">#{restBB.rests.size()} restaurant(s) found</span>
+			<h:commandButton value="CLEAR" action="#{restBB.getAllRestaurants}">
+				<f:ajax execute="@form" render="holder filters"/>
+			</h:commandButton>	
+		</h:form>
+		</h:panelGroup>
+		<h:panelGroup id="holder" p:class="holder" layout="block">
+			<ui:repeat value="#{restBB.rests}" var="rest">
+				<div class="card">
+					<span class="name" >#{rest.name}</span>
+					<span class="farRight">#{rest.rating} <span class="fa fa-star checked"></span></span>
+					<span class="cuisines" >#{rest.cuisines}</span>
+					<span class="farRight">#{rest.votes} Votes</span>
+					<span class="currency" >Costs #{rest.currency} #{rest.costForTwo} for two</span>
+					<h:panelGroup p:class="farRight" style="color: #{rest.getRatingColorNoSpaces()}; font-weight:700;">#{rest.ratingText}</h:panelGroup>
+					<h:panelGroup styleClass="#{rest.tableBooking eq 'Yes' ? 'links' : 'links disable'}">
+						Book Table
+					</h:panelGroup><h:panelGroup styleClass="#{rest.onlineDelivery eq 'Yes' ? 'links' : 'links disable'}">
+						Order Online
+					</h:panelGroup>
+				</div>
+			</ui:repeat>
+		</h:panelGroup>
+	</ui:define>
+</ui:composition>

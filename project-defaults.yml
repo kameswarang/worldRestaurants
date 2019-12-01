@@ -1,0 +1,13 @@
+thorntail:
+    datasources:
+        data-sources:
+            worldRestDS:
+                driver-name: mysql
+                connection-url: jdbc:mysql://a5s42n4idx9husyc.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/csahjgo4vywawaxp
+                user-name: xvxor6mjpwgh80un
+                password: li5n4ha5yztg2eaa
+        #jdbc-drivers:
+        #    mysql:
+        #        driver-class-name: com.mysql.cj.jdbc.Driver
+        #        xa-datasource-name: com.mysql.cj.jdbc.MysqlXADataSource
+        #        driver-module-name: com.mysql.driver

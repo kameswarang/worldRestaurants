@@ -10,7 +10,7 @@
 	<ui:define name="main">
 		<h:panelGroup id="filters" layout="block" p:class="filters">
 		<h:form class="filter" id="searchCuisines">
-			<h:inputText id="cuisine" p:placeholder="Search by cuisines" value="#{restBB.cuisine}" p:required>
+			<h:inputText id="cuisine" p:placeholder="Search by cuisines" value="#{restBB.cuisine}" p:required="required">
 				<f:ajax event="blur" execute="@this" render="cuisineErr"/>
 			</h:inputText>
 			<h:commandButton value="SEARCH" action="#{restBB.searchCuisine}">
@@ -19,7 +19,7 @@
 			<br/><h:message id="cuisineErr" for="cuisine" errorClass="errors" showDetail="true"/>
 		</h:form>
 		<h:form class="filter" id="searchNames">
-			<h:inputText id="name" p:placeholder="Search by name" value="#{restBB.name}" p:required>
+			<h:inputText id="name" p:placeholder="Search by name" value="#{restBB.name}" p:required="required">
 				<f:ajax event="blur" execute="@this" render="nameErr"/>
 			</h:inputText>
 			<h:commandButton value="SEARCH" action="#{restBB.searchRest}">
@@ -31,7 +31,7 @@
 			<h:commandButton id="sort" value="GO" action="#{restBB.sort}">
 				<f:ajax execute="@form" render="holder"/>
 			</h:commandButton>
-			<h:selectOneMenu value="#{restBB.sortBy}" p:required>
+			<h:selectOneMenu value="#{restBB.sortBy}" p:required="required">
 				<f:selectItem itemValue="" itemLabel=""/>
 				<f:selectItem itemValue="cost" itemLabel="Cost"/>
 				<f:selectItem itemValue="rating" itemLabel="Rating"/>

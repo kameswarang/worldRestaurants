@@ -1,0 +1,1 @@
+web: java -jar target/world_restaurants_core-1.0-thorntail.jar

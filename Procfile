@@ -1,1 +1,1 @@
-web: java -Dthorntail.https.port=$PORT -jar target/world_restaurants_core-1.0-thorntail.jar
+web: java -Dthorntail.http.port=$PORT -jar target/world_restaurants_core-1.0-thorntail.jar

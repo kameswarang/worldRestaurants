@@ -5,11 +5,12 @@
   <version>1.0</version>
 
   <properties>
-  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-  <version.thorntail>2.5.0.Final</version.thorntail>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <version.maven.clean>3.1.0</version.maven.clean>
+    <version.thorntail>2.5.0.Final</version.thorntail>
   </properties>
-
+  
   <groupId>world_restaurants</groupId>
   <artifactId>world_restaurants_core</artifactId>
 
@@ -79,9 +80,29 @@
       <version>${version.thorntail}</version>
     </dependency>
     <dependency>
-        <groupId>io.thorntail.servers</groupId>
-        <artifactId>full</artifactId>
-        <version>${version.thorntail}</version>   
+      <groupId>io.thorntail</groupId>
+      <artifactId>undertow</artifactId>
+      <version>${version.thorntail}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>jsf</artifactId>
+      <version>${version.thorntail}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>ejb</artifactId>
+      <version>${version.thorntail}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>cdi</artifactId>
+      <version>${version.thorntail}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.thorntail</groupId>
+      <artifactId>jpa</artifactId>
+      <version>${version.thorntail}</version>
     </dependency>
   </dependencies>
   <build>
@@ -102,6 +123,28 @@
         <version>2.22.1</version>
       </plugin>
       <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>clean-jar-artifacts</id>
+            <phase>package</phase>
+            <goals><goal>clean</goal></goals>
+            <configuration>
+              <excludeDefaultDirectories>true</excludeDefaultDirectories>
+              <filesets>
+                <fileset>
+                  <directory>target</directory>
+                  <excludes>
+                    <exclude>*.war</exclude>
+                  </excludes>
+                </fileset>
+              </filesets>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>io.thorntail</groupId>
         <artifactId>thorntail-maven-plugin</artifactId>
         <version>${version.thorntail}</version>
@@ -111,9 +154,6 @@
             <goals>
               <goal>package</goal>
             </goals>
-            <configuration>
-              <hollow>false</hollow>
-            </configuration>
           </execution>
         </executions>
       </plugin>      

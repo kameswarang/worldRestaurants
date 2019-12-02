@@ -48,7 +48,7 @@ public class RestaurantEJB implements RestaurantEJBLocal, Serializable {
     public List<Restaurant> searchByName(String name) {
         List<Restaurant> rests = null;
         try {
-            rests = (List<Restaurant>) em.createNamedQuery("searchByName").setParameter("name", name).getResultList();
+            rests = (List<Restaurant>) em.createNamedQuery("searchByName").setParameter("name", "%"+name+"%").getResultList();
         }
         catch(Exception e) {
             e.printStackTrace();

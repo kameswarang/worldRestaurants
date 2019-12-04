@@ -6,6 +6,6 @@ import worldRest.persistence.Restaurant;
 
 public class RatingComparator implements Comparator<Restaurant> {
     public int compare(Restaurant r, Restaurant s) {
-        return (int) ((r.getRating() - s.getRating()) * 10);
+        return Float.compare(r.getRating(), s.getRating());
     }
 }

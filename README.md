@@ -1,6 +1,6 @@
 # worldRestaurants
 
-This app was developed as a solution to a full-stack hiring challenge and can be accessed here http://35.244.50.9:8080/worldRestaurants.
+This app was developed as a solution to a full-stack hiring challenge and can be accessed here http://worldRestaurants-kganesh1795.herkou.com
 
 Find below the specification and the corresponding degree of compliancy (Implemented, Partially implemented, Not implemented)
 

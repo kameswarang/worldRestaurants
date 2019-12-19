@@ -4,5 +4,3 @@ thorntail:
             worldRestDS:
                 driver-name: mysql
                 connection-url: jdbc:
-                user-name: 
-                password: 

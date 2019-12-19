@@ -1,6 +1,6 @@
 # worldRestaurants
 
-This app was developed as a solution to a full-stack hiring challenge and can be accessed here http://worldRestaurants-kganesh1795.herkou.com
+This app was developed as a solution to a full-stack hiring challenge and can be accessed here http://worldRestaurants-kganesh1795.heroku.com
 
 Find below the specification and the corresponding degree of compliancy (Implemented, Partially implemented, Not implemented)
 

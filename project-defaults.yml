@@ -3,4 +3,4 @@ thorntail:
         data-sources:
             worldRestDS:
                 driver-name: mysql
-                connection-url: jdbc:
+                #connection-url: add url here in dev environment
